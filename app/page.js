@@ -1,18 +1,26 @@
-import React from 'react';
-import Link from 'next/link';
+// import React from 'react';
+// import Link from 'next/link';
 
-const IndexPage = () => {
+// const IndexPage = () => {
+//     return (
+//         <div>
+//             <h1>Empower Your Plants</h1>
+//             <h2>This is the landing page.</h2>
+//             <h3>
+//                 <Link href="/products">
+//                     Go to Products Page
+//                 </Link>
+//             </h3>
+//         </div>
+//     );
+// };
+
+// export default IndexPage;
+
+const thisPage = () => {
     return (
-        <div>
-            <h1>Empower Your Plants</h1>
-            <h2>This is the landing page.</h2>
-            <h3>
-                <Link href="/products">
-                    Go to Products Page
-                </Link>
-            </h3>
-        </div>
-    );
+    <div>
+        <h1>this page</h>
+    </div>
+);
 };
-
-export default IndexPage;
