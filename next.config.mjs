@@ -23,7 +23,7 @@ transpileClientSDK: true,
 // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers. (increases server load)
 // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
 // side errors will fail.
-tunnelRoute: "/monitoring",
+tunnelRoute: "https://2aaa3ad3ba5ea01c289d2297fd91be88@o88872.ingest.us.sentry.io/4507023815802880",
 
 // Hides source maps from generated client bundles
 hideSourceMaps: true,
