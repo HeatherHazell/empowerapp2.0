@@ -1,7 +1,15 @@
-import {withSentryConfig} from '@sentry/nextjs';
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+//SUMMARY - it sets up the configuration for Sentry in a Next.js application
 
+//Importing the withSentryConfig function from the @sentry/nextjs package. This function is used to configure 
+//Sentry for Next.js applications.
+import {withSentryConfig} from '@sentry/nextjs';
+//This is a JSDoc comment that provides type information for the nextConfig variable. It specifies that nextConfig 
+//is an object that conforms to the NextConfig type defined in the next module.
+/** @type {import('next').NextConfig} */
+//Initializing an empty object named nextConfig. This object will be used to configure Next.js.
+const nextConfig = {};
+//Calling the withSentryConfig function and passing nextConfig as the first argument. This function wraps the Next.js configuration with Sentry-specific configuration options.
+//The configuration options for Sentry are passed as the second argument. These options include settings for configuring Sentry error tracking and reporting in a Next.js application.
 export default withSentryConfig(nextConfig, {
 // For all available options, see:
 // https://github.com/getsentry/sentry-webpack-plugin#options
@@ -23,7 +31,7 @@ transpileClientSDK: true,
 // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers. (increases server load)
 // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
 // side errors will fail.
-tunnelRoute: "/monitoring",
+// tunnelRoute: "/monitoring",
 
 // Hides source maps from generated client bundles
 hideSourceMaps: true,

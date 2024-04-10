@@ -1,18 +1,18 @@
-// pages/index.js
-import React from 'react';
-import Link from 'next/link';
+// pages/index.js - main route
+import React from 'react'; 
+import Link from 'next/link'; 
 
 const IndexPage = () => {
     return (
-        <div>
+        <div> 
             <h1>Empower Your Plants</h1>
-            <h2>This is the landing page.</h2>
+            <h2>This is the landing page.</h2> 
             <h3>
-                <Link href="/products">
+                <Link href="/products"> 
                     Go to Products Page
                 </Link>
             </h3>
-        </div>
+        </div> 
     );
 };
 
