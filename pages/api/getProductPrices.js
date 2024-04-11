@@ -12,8 +12,8 @@ async function getProductPrices(req, res) {
 
         // Define conversion rates for different currencies
         const conversionRates = {
-            european: 0.85, 
-            japanese: 110.45, 
+            euro: 0.85, 
+            yen: 110.45, 
         };
 
         // Calculate the converted prices for each product
