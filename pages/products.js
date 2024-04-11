@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation'
 
 const ProductsPage = () => {
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
-
+    const searchParams = useSearchParams();
+    const currency = searchParams.get('currency');
+    console.log('confirming currency thing',currency);
+    
     useEffect(() => {
         fetchProducts();
-    }, []);
+    }, [currency]);
     const fetchProducts = async () => {
                 try {
-                    const res = await fetch('/api/getProductPrices');
+                    const res = await fetch(`/api/getProductPrices?currency=${currency}`);
                     const data = await res.json();
                     setProducts(data);
                 } catch (error) {
@@ -41,7 +45,6 @@ const ProductsPage = () => {
     if (Array.isArray(products) && products.length > 0) {
         currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
     }
-
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
     const handleItemsPerPageChange = event => {
@@ -50,7 +53,7 @@ const ProductsPage = () => {
     };
 
     const totalPages = Math.ceil(products.length / itemsPerPage);
-
+    console.log(currentItems);
     return (
         <div>
             <h1>All the products!</h1>
@@ -62,13 +65,13 @@ const ProductsPage = () => {
             <ol start={indexOfFirstItem + 1}>
                 {currentItems.map(product => (
                    <li key={product.id}>
-                        {product.title} - investment: 
-                        {Array.isArray(product.convertedPrices) && product.convertedPrices.map((price, index) => (
+                        {product.title} - investment: {product.convertedPrices}
+                        {/* {Array.isArray(product.convertedPrices) && product.convertedPrices.map((price, index) => (
                             <span key={index}>
                                  {product.convertedPrices}
                             {index !== product.convertedPrices.length - 1 && ', '}
                        </span>
-                   ))}
+                   ))} */}
                    <ul>
                        <li>{product.description}</li>
                    </ul>

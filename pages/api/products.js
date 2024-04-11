@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
+    console.log('hello im here');
     try {
         const response = await fetch('https://application-monitoring-flask-dot-sales-engineering-sf.appspot.com/products');
         const products = await response.json();

@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 async function getProductPrices(req, res) {
     const productId = req.query.productId;
     const currency = req.query.currency; 
-
+    console.log('currency',currency);
     try {
         // Fetch product data from the provided API
         const response = await fetch(`https://application-monitoring-flask-dot-sales-engineering-sf.appspot.com/products`);
@@ -20,10 +20,7 @@ async function getProductPrices(req, res) {
         const productsWithConvertedPrices = products.map(product => {
             let convertedPrices = product.price; // Assuming product.price contains the prices
             if (currency && conversionRates[currency]) {
-                convertedPrices = product.price.map(price => ({
-                    ...price,
-                    value: price.value * conversionRates[currency]
-                }));
+                convertedPrices = product.price * conversionRates[currency]
             }
             return { ...product, convertedPrices };
         });
